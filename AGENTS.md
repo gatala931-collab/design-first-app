@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep external AI and persistence integrations behind typed client adapters so the local demo experience can be replaced without redesigning UI.
