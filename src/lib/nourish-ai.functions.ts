@@ -67,7 +67,7 @@ function coachSystemPrompt(context: CoachContext) {
 }
 
 export const coachReply = createServerFn({ method: "POST" })
-  .inputValidator(
+  .validator(
     (input: { message: string; history: { role: "user" | "assistant"; content: string }[]; context: CoachContext }) =>
       input,
   )
@@ -98,7 +98,7 @@ export type MealAnalysis = {
 };
 
 export const analyzeMeal = createServerFn({ method: "POST" })
-  .inputValidator((input: { imageBase64: string; mimeType: string; country: string; meal: MealType }) => input)
+  .validator((input: { imageBase64: string; mimeType: string; country: string; meal: MealType }) => input)
   .handler(async ({ data }): Promise<{ ok: boolean; analysis: MealAnalysis | null }> => {
     try {
       const text = await callGemini({
